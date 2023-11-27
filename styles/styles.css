@@ -2,6 +2,16 @@ h2 {
   font: 400 100px/96px "Playfair Display", serif;
   color: #2c2f24;
 }
+@media (max-width: 991.98px) {
+  h2 {
+    font: 400 70px/66px "Playfair Display", serif;
+  }
+}
+
+h5 {
+  font: 700 20px/26px "DM Sans", sans-serif;
+  color: #2c2f24;
+}
 
 * {
   margin: 0;
@@ -20,21 +30,58 @@ body {
   padding: 20px;
   margin: 0 auto;
 }
+@media (max-width: 1449.98px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (max-width: 1193.98px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 740px;
+  }
+}
+@media (max-width: 479.98px) {
+  .container {
+    max-width: none;
+  }
+}
 
 .menu__top {
   text-align: center;
   margin-bottom: 88px;
 }
+@media (max-width: 991.98px) {
+  .menu__top {
+    margin-bottom: 30px;
+  }
+}
 .menu__descr {
   padding: 20px 0 50px;
   max-width: 557px;
   margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .menu__descr {
+    padding: 20px 0 30px;
+  }
 }
 .menu .tabheaders {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .menu .tabheader {
   padding: 12px 38px;
@@ -46,30 +93,63 @@ body {
   transition: 0.2s ease;
 }
 .menu .tabheader:hover {
-  background-color: #ad343e;
-  color: #ffffff;
+  opacity: 0.7;
 }
-.menu .tabs-coctainer {
+.menu .tabs-container {
   display: grid;
   justify-content: center;
   max-width: 100%;
   width: 100%;
   gap: 24px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 991.98px) {
+  .menu .tabs-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .menu .tabs-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 479.98px) {
+  .menu .tabs-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .menu .tabcontent {
   max-width: 360px;
   width: 100%;
   overflow: hidden;
+  text-align: center;
   border: 1px solid #dbdfd0;
   border-radius: 12px;
+}
+@media (max-width: 479.98px) {
+  .menu .tabcontent {
+    max-width: 100%;
+  }
 }
 .menu .tabcontent__container {
   padding: 30px;
 }
+@media (max-width: 991.98px) {
+  .menu .tabcontent__container {
+    padding: 12px;
+  }
+}
 .menu .tabcontent__img {
   max-width: 100%;
   width: 100%;
+}
+.menu .tabcontent__price {
+  font: 700 20px/24px "DM Sans", sans-serif;
+  color: #ad343e;
+}
+.menu .tabcontent__title {
+  padding: 15px 0;
 }
 .menu .active--tabheader {
   background-color: #ad343e;

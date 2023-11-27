@@ -12,6 +12,14 @@ $color-white: #ffffff;
 h2 {
   font: 400 100px/96px $font-primary;
   color: $color-title;
+  @media (max-width: 991.98px) {
+    font: 400 70px/66px $font-primary;
+  }
+}
+
+h5 {
+  font: 700 20px/26px $font-secondary;
+  color: $color-title;
 }
 
 * {
@@ -30,23 +38,54 @@ body {
   width: 100%;
   padding: 20px;
   margin: 0 auto;
+
+  @media (max-width: 1449.98px) {
+    max-width: 1200px;
+  }
+  @media (max-width: 1193.98px) {
+    max-width: 1200px;
+  }
+
+  @media (max-width: 991.98px) {
+    max-width: 970px;
+  }
+
+  @media (max-width: 767.98px) {
+    max-width: 740px;
+  }
+
+  @media (max-width: 479.98px) {
+    max-width: none;
+  }
 }
 
 .menu {
   &__top {
     text-align: center;
     margin-bottom: 88px;
+    @media (max-width: 991.98px) {
+      margin-bottom: 30px;
+    }
+
   }
   &__descr {
     padding: 20px 0 50px;
     max-width: 557px;
     margin: 0 auto;
+    text-align: center;
+    @media (max-width: 991.98px) {
+      padding: 20px 0 30px;
+    }
+    @media (max-width: 767.98px) {
+      // max-width: 100%;
+    }
   }
   .tabheaders {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
   .tabheader {
     padding: 12px 38px;
@@ -57,30 +96,57 @@ body {
     cursor: pointer;
     transition: 0.2s ease;
     &:hover {
-      background-color: $color-dark-red;
-      color: $color-white;
+      opacity: .7;
+    }
+    @media (max-width: 991.98px) {
+
     }
   }
-  .tabs-coctainer {
+  .tabs-container {
     display: grid;
     justify-content: center;
     max-width: 100%;
     width: 100%;
     gap: 24px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 991.98px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 767.98px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 479.98px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   .tabcontent {
     max-width: 360px;
     width: 100%;
     overflow: hidden;
+    text-align: center;
     border: 1px solid $color-neutral;
     border-radius: 12px;
+    @media (max-width: 479.98px) {
+      max-width: 100%;
+
+    }
     &__container {
       padding: 30px;
+      @media (max-width: 991.98px) {
+        padding: 12px;
+      }
     }
     &__img {
       max-width: 100%;
       width: 100%;
+    }
+    &__price {
+      font: 700 20px/24px $font-secondary;
+      color: $color-dark-red;
+    }
+    &__title {
+      padding: 15px 0;
     }
   }
   .active--tabheader {
@@ -96,3 +162,4 @@ body {
 .show {
   display: flex;
 }
+
