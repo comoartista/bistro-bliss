@@ -1,11 +1,11 @@
-h2 {
+h1 {
   font: 400 100px/96px "Playfair Display", serif;
   color: #2c2f24;
 }
-@media (max-width: 991.98px) {
-  h2 {
-    font: 400 70px/66px "Playfair Display", serif;
-  }
+
+h2 {
+  font: 400 55px/60.5px "Playfair Display", serif;
+  color: #2c2f24;
 }
 
 h5 {
@@ -54,6 +54,187 @@ body {
   .container {
     max-width: none;
   }
+}
+
+.btn {
+  padding: 20px 32px;
+  font: 700 16px/24px "DM Sans", sans-serif;
+  color: #ffffff;
+  background-color: #ad343e;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn__outline {
+  font: 700 16px/24px "DM Sans", sans-serif;
+  color: #182226;
+  background-color: transparent;
+  border: 1px solid #182226;
+}
+
+.header {
+  background-color: #ffffff;
+}
+.header.fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+}
+.menu__item {
+  display: flex;
+  position: relative;
+}
+.menu__item-link {
+  font: 400 16px/24px "DM Sans", sans-serif;
+  color: #182226;
+  display: flex;
+  position: relative;
+  transition: 0.5s color;
+  text-decoration: none;
+}
+.menu__item-link:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -3px;
+  background: #131418;
+  height: 1px;
+  width: 100%;
+  transform: scale(0);
+  transition: 0.5s transform;
+  display: none;
+}
+.menu__item-link:hover {
+  color: #131418;
+}
+.menu__item-link:hover:after {
+  transform: scale(1);
+}
+@media screen and (max-width: 991.98px) {
+  .menu {
+    position: fixed;
+    background: #dbdfd0;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+  }
+  .menu.active {
+    display: flex;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    pointer-events: all;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    animation: fade 0.1s linear;
+  }
+}
+
+.burger {
+  display: none;
+  background: transparent;
+  z-index: 3;
+  border: none;
+}
+@media screen and (max-width: 991.98px) {
+  .burger {
+    display: flex;
+    position: relative;
+    height: 20px;
+    width: 30px;
+  }
+  .burger.active:before {
+    background: #182226;
+    transform: rotate(45deg);
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    top: 8px;
+  }
+  .burger.active:after {
+    background: #182226;
+    transform: rotate(-45deg);
+    bottom: 10px;
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  }
+  .burger.active span {
+    transform: scale(0);
+  }
+  .burger:before, .burger:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #182226;
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  }
+  .burger:before {
+    top: 0;
+  }
+  .burger::after {
+    bottom: 0;
+  }
+  .burger span {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    width: 100%;
+    background: #182226;
+    height: 2px;
+    transform: scale(1);
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+  }
+}
+
+#progressBar {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  width: 10%;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.hero {
+  background: url(/images/hero-bg.jpg) center/cover no-repeat;
+  height: 800px;
+}
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 650px;
+  height: 100%;
+}
+.hero__descr {
+  padding: 30px 0 40px;
+  max-width: 418px;
+}
+.hero__btns {
+  display: flex;
+  gap: 16px;
 }
 
 .menu__top {
@@ -162,6 +343,48 @@ body {
 
 .show {
   display: flex;
+}
+
+.promotion {
+  background-color: #f9f9f7;
+  margin: 100px auto;
+  padding: 120px 0;
+  text-align: center;
+}
+.promotion__title {
+  max-width: 546px;
+  margin: 0 auto;
+}
+.promotion__descr {
+  padding-top: 20px;
+  max-width: 621px;
+  margin: 0 auto;
+}
+.promotion__discount {
+  color: #ad343e;
+  font-weight: 600;
+}
+
+.timer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.timer__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+  border: 1px solid #ad343e;
+  width: 100px;
+  height: 100px;
+}
+.timer__block span {
+  font: 700 50px/26px "Playfair Display", serif;
+  color: #ad343e;
 }
 
 /*# sourceMappingURL=styles.css.map */

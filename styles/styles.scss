@@ -5,16 +5,20 @@ $font-primary: "Playfair Display", serif;
 //Color
 $color-title: #2c2f24;
 $color-neutral: #dbdfd0;
+
 $color-dark-red: #ad343e;
 $color-white: #ffffff;
+$color-black: #182226;
+$color-bg-neutral: #f9f9f7;
 
 //Text
-h2 {
+h1 {
   font: 400 100px/96px $font-primary;
   color: $color-title;
-  @media (max-width: 991.98px) {
-    font: 400 70px/66px $font-primary;
-  }
+}
+h2 {
+  font: 400 55px/60.5px $font-primary;
+  color: $color-title;
 }
 
 h5 {
@@ -59,6 +63,195 @@ body {
   }
 }
 
+.btn {
+  padding: 20px 32px;
+  font: 700 16px/24px $font-secondary;
+  color: $color-white;
+  background-color: $color-dark-red;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &__outline {
+    font: 700 16px/24px $font-secondary;
+    color: $color-black;
+    background-color: transparent;
+    border: 1px solid $color-black;
+  }
+}
+
+.header {
+  background-color: $color-white;
+
+  &.fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+
+  &__item {
+    display: flex;
+    position: relative;
+  }
+  &__item-link {
+    font: 400 16px/24px $font-secondary;
+    color: $color-black;
+    display: flex;
+    position: relative;
+    transition: 0.5s color;
+    text-decoration: none;
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -3px;
+      background: #131418;
+      height: 1px;
+      width: 100%;
+      transform: scale(0);
+      transition: 0.5s transform;
+      // Comment if you need border animation
+      display: none;
+    }
+    &:hover {
+      color: #131418;
+      &:after {
+        transform: scale(1);
+      }
+    }
+  }
+  @media screen and (max-width: 991.98px) {
+    position: fixed;
+    background: $color-neutral;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+
+    &.active {
+      display: flex;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      flex-direction: column;
+      pointer-events: all;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      animation: fade 0.1s linear;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  background: transparent;
+  z-index: 3;
+  border: none;
+  @media screen and (max-width: 991.98px) {
+    display: flex;
+    position: relative;
+    height: 20px;
+    width: 30px;
+
+    &.active {
+      &:before {
+        background: $color-black;
+        transform: rotate(45deg);
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+        top: 8px;
+      }
+
+      &:after {
+        background: $color-black;
+        transform: rotate(-45deg);
+        bottom: 10px;
+        transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+      }
+
+      & span {
+        transform: scale(0);
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: $color-black;
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    }
+
+    &:before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      position: absolute;
+      top: 9px;
+      right: 0;
+      width: 100%;
+      background: $color-black;
+      height: 2px;
+      transform: scale(1);
+      transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s all;
+    }
+  }
+}
+
+#progressBar {
+  $scollAmount: 10%;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  width: $scollAmount;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.hero {
+  background: url(/images/hero-bg.jpg) center / cover no-repeat;
+  height: 800px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 650px;
+    height: 100%;
+  }
+  &__descr {
+    padding: 30px 0 40px;
+    max-width: 418px;
+  }
+  &__btns {
+    display: flex;
+    gap: 16px;
+  }
+}
 .menu {
   &__top {
     text-align: center;
@@ -66,7 +259,6 @@ body {
     @media (max-width: 991.98px) {
       margin-bottom: 30px;
     }
-
   }
   &__descr {
     padding: 20px 0 50px;
@@ -75,9 +267,6 @@ body {
     text-align: center;
     @media (max-width: 991.98px) {
       padding: 20px 0 30px;
-    }
-    @media (max-width: 767.98px) {
-      // max-width: 100%;
     }
   }
   .tabheaders {
@@ -96,10 +285,7 @@ body {
     cursor: pointer;
     transition: 0.2s ease;
     &:hover {
-      opacity: .7;
-    }
-    @media (max-width: 991.98px) {
-
+      opacity: 0.7;
     }
   }
   .tabs-container {
@@ -129,7 +315,6 @@ body {
     border-radius: 12px;
     @media (max-width: 479.98px) {
       max-width: 100%;
-
     }
     &__container {
       padding: 30px;
@@ -163,3 +348,45 @@ body {
   display: flex;
 }
 
+.promotion {
+  background-color: $color-bg-neutral;
+  margin: 100px auto;
+  padding: 120px 0;
+  text-align: center;
+  &__title {
+    max-width: 546px;
+    margin: 0 auto;
+  }
+  &__descr {
+    padding-top: 20px;
+    max-width: 621px;
+    margin: 0 auto;
+  }
+  &__discount {
+    color: $color-dark-red;
+    font-weight: 600;
+  }
+}
+
+.timer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    border: 1px solid $color-dark-red;
+    width: 100px;
+    height: 100px;
+
+    span {
+      font: 700 50px/26px $font-primary;
+      color: $color-dark-red;
+    }
+  }
+}
