@@ -1,3 +1,5 @@
+
+//Burger menu
 function burgerMenu() {
     const burger = document.querySelector('.burger')
     const menu = document.querySelector('.menu')
@@ -139,7 +141,7 @@ list.renderProducts();
 
 
 //Timer
-const deadline = '2023-11-28';
+const deadline = '2023-12-30';
 
 function getTimeRemaining(endtime) {
     let days, hours, minutes, seconds;
@@ -198,12 +200,45 @@ function setClock(selector, endtime) {
 
 setClock('.timer', deadline)
 
+// Progress bar
 const progress = document.getElementById('progressBar');
 
 const processScroll = () => {
     let progressWidth = (document.body.scrollTop || document.documentElement.scrollTop)/ (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100;
-    progress.style.width = progressWidth + '%'
-
+    progress.style.width = progressWidth + '%';
 }
 document.addEventListener('scroll', processScroll)
 
+
+// Modal
+const modalTrigger = document.querySelectorAll('[data-modal]')
+const modal = document.querySelector('.modal')
+const modalCloseBtn = document.querySelector('[data-close]')
+
+modalTrigger.forEach(elem => {
+    elem.addEventListener('click', () => {
+        modal.classList.remove('hide')
+        modal.classList.add('show')
+        document.body.style.overflow = 'hidden'
+    })
+})
+
+const closeModal = () => {
+    modal.classList.remove('show') 
+    modal.classList.add('hide')
+    document.body.style.overflow = ''
+}
+
+modalCloseBtn.addEventListener('click', closeModal)
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Escape" && modal.classList.contains('show')) { 
+        closeModal();
+    }
+});

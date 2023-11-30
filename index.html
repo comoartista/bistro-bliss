@@ -29,7 +29,7 @@
                         <li class="menu__item"><a href="#" class="menu__item-link" data-scroll>Contact</a></li>
                     </ul>
                 </nav>
-                <button class="btn__book btn btn__outline">Book A Table</button>
+                <button data-modal class="btn__book btn btn__outline">Book A Table</button>
                 <button class="burger">
                     <span></span>
                 </button>
@@ -44,16 +44,16 @@
                 <h1 class="hero__title">Best food for your taste</h1>
                 <p class="hero__descr">Discover delectable cuisine and unforgettable moments in our welcoming, culinary haven.</p>
                 <div class="hero__btns">
-                    <button class="btn">Book A Table</button>
+                    <button data-modal class="btn">Book A Table</button>
                     <button class="btn btn__outline">Explore Menu</button>
                 </div>
             </div>
         </section>
-        <section class="menu">
-            <div class="container menu__coctainer">
-                <div class="menu__top">
-                    <h2 class="menu__title">Our Menu</h2>
-                    <p class="menu__descr">We consider all the drivers of change gives you the components you need to change to create a truly happens.</p>
+        <section class="products">
+            <div class="container products__container">
+                <div class="products__top">
+                    <h2 class="products__title">Our Menu</h2>
+                    <p class="products__descr">We consider all the drivers of change gives you the components you need to change to create a truly happens.</p>
                     <div id="btnContainer" class="tabheaders">
                         <button id="allDishes" class="tabheader active--tabheader">All</button>
                         <button id="breakfast" class="tabheader">Breakfast</button>
@@ -91,6 +91,20 @@
             </div>
         </section>
 
+        <div class="modal">
+            <div class="modal__dialog">
+                <div class="modal__content">
+                    <form action="#" class="form">
+                        <div data-close class="modal__close">&times;</div>
+                        <h4 class="modal__title">Fill out the form</h4>
+                        <p class="modal__descr">Will call you back as soon as possible</з>
+                        <input class="modal__field" type="text" placeholder="Name" required>
+                        <input class="modal__field" type="phone" placeholder="Phone" required>
+                        <button class="btn modal__btn">Call</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

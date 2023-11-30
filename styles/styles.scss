@@ -21,6 +21,11 @@ h2 {
   color: $color-title;
 }
 
+h4 {
+  font: 400 32px/44px $font-primary;
+  color: $color-title;
+}
+
 h5 {
   font: 700 20px/26px $font-secondary;
   color: $color-title;
@@ -223,9 +228,8 @@ body {
 }
 
 #progressBar {
-  $scollAmount: 10%;
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  width: $scollAmount;
+  width: 0;
   height: 6px;
   position: fixed;
   top: 0;
@@ -252,9 +256,11 @@ body {
     gap: 16px;
   }
 }
-.menu {
+.products {
+  margin: 100px auto;
   &__top {
     text-align: center;
+
     margin-bottom: 88px;
     @media (max-width: 991.98px) {
       margin-bottom: 30px;
@@ -340,14 +346,7 @@ body {
   }
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: flex;
-}
-
+// Promotion
 .promotion {
   background-color: $color-bg-neutral;
   margin: 100px auto;
@@ -389,4 +388,79 @@ body {
       color: $color-dark-red;
     }
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, .5);
+  &__dialog {
+    max-width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__content {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 50px;
+    color: $color-neutral;
+    cursor: pointer;
+    transition: 0.2s ease;
+    &:hover {
+      color: $color-black;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 24px;
+  }
+  &__field {
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 100px;
+    outline: 1px solid $color-neutral;
+    border: transparent;
+  }
+  &__field:nth-child(1) {
+    margin-top: 24px;
+  }
+  &__field:nth-child(2) {
+    margin: 24px 0;
+  }
+  &__field:focus {
+    outline: 1px solid $color-dark-red;
+  }
+  &__btn {
+    width: 100%;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

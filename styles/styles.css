@@ -8,6 +8,11 @@ h2 {
   color: #2c2f24;
 }
 
+h4 {
+  font: 400 32px/44px "Playfair Display", serif;
+  color: #2c2f24;
+}
+
 h5 {
   font: 700 20px/26px "DM Sans", sans-serif;
   color: #2c2f24;
@@ -208,7 +213,7 @@ body {
 
 #progressBar {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  width: 10%;
+  width: 0;
   height: 6px;
   position: fixed;
   top: 0;
@@ -237,34 +242,37 @@ body {
   gap: 16px;
 }
 
-.menu__top {
+.products {
+  margin: 100px auto;
+}
+.products__top {
   text-align: center;
   margin-bottom: 88px;
 }
 @media (max-width: 991.98px) {
-  .menu__top {
+  .products__top {
     margin-bottom: 30px;
   }
 }
-.menu__descr {
+.products__descr {
   padding: 20px 0 50px;
   max-width: 557px;
   margin: 0 auto;
   text-align: center;
 }
 @media (max-width: 991.98px) {
-  .menu__descr {
+  .products__descr {
     padding: 20px 0 30px;
   }
 }
-.menu .tabheaders {
+.products .tabheaders {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
 }
-.menu .tabheader {
+.products .tabheader {
   padding: 12px 38px;
   font: 700 16px/24px "DM Sans", sans-serif;
   border: 1px solid #dbdfd0;
@@ -273,10 +281,10 @@ body {
   cursor: pointer;
   transition: 0.2s ease;
 }
-.menu .tabheader:hover {
+.products .tabheader:hover {
   opacity: 0.7;
 }
-.menu .tabs-container {
+.products .tabs-container {
   display: grid;
   justify-content: center;
   max-width: 100%;
@@ -285,22 +293,22 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 @media (max-width: 991.98px) {
-  .menu .tabs-container {
+  .products .tabs-container {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 }
 @media (max-width: 767.98px) {
-  .menu .tabs-container {
+  .products .tabs-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 479.98px) {
-  .menu .tabs-container {
+  .products .tabs-container {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.menu .tabcontent {
+.products .tabcontent {
   max-width: 360px;
   width: 100%;
   overflow: hidden;
@@ -309,40 +317,32 @@ body {
   border-radius: 12px;
 }
 @media (max-width: 479.98px) {
-  .menu .tabcontent {
+  .products .tabcontent {
     max-width: 100%;
   }
 }
-.menu .tabcontent__container {
+.products .tabcontent__container {
   padding: 30px;
 }
 @media (max-width: 991.98px) {
-  .menu .tabcontent__container {
+  .products .tabcontent__container {
     padding: 12px;
   }
 }
-.menu .tabcontent__img {
+.products .tabcontent__img {
   max-width: 100%;
   width: 100%;
 }
-.menu .tabcontent__price {
+.products .tabcontent__price {
   font: 700 20px/24px "DM Sans", sans-serif;
   color: #ad343e;
 }
-.menu .tabcontent__title {
+.products .tabcontent__title {
   padding: 15px 0;
 }
-.menu .active--tabheader {
+.products .active--tabheader {
   background-color: #ad343e;
   color: #ffffff;
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: flex;
 }
 
 .promotion {
@@ -385,6 +385,81 @@ body {
 .timer__block span {
   font: 700 50px/26px "Playfair Display", serif;
   color: #ad343e;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__dialog {
+  max-width: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal__content {
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 50px;
+  color: #dbdfd0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.modal__close:hover {
+  color: #182226;
+}
+.modal .form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 24px;
+}
+.modal__field {
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 100px;
+  outline: 1px solid #dbdfd0;
+  border: transparent;
+}
+.modal__field:nth-child(1) {
+  margin-top: 24px;
+}
+.modal__field:nth-child(2) {
+  margin: 24px 0;
+}
+.modal__field:focus {
+  outline: 1px solid #ad343e;
+}
+.modal__btn {
+  width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */
